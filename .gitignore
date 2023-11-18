@@ -1,0 +1,9 @@
+# IntelliJ IDEA
+.idea/
+
+# Exercism
+/*/.exercism/
+
+# Gradle
+/*/build/
+/*/.gradle/
