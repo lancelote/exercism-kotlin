@@ -1,19 +1,9 @@
 package acronym
 
 object Acronym {
-    fun generate(phrase: String): String {
-        var wasSeparator = true
-        val result: MutableList<Char> = mutableListOf()
-
-        for (x in phrase) {
-            if (x.isLetter() && wasSeparator) {
-                result.add(x.uppercaseChar())
-                wasSeparator = false
-            } else if (x == ' ' || x == '-') {
-                wasSeparator = true
-            }
-        }
-
-        return result.joinToString("")
-    }
+    fun generate(phrase: String) = phrase
+        .split(" ", "-", "_")
+        .filter { it.isNotEmpty() }
+        .map { it.first().uppercaseChar() }
+        .joinToString("")
 }
