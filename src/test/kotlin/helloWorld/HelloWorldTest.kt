@@ -1,8 +1,7 @@
 package helloWorld
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
-
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class HelloWorldTest {
     @Test
