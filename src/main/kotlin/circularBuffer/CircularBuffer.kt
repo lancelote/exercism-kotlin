@@ -9,10 +9,7 @@ class BufferFullException : Exception()
 class CircularBuffer<T>(private val capacity: Int) {
     private val data = ArrayDeque<T>(capacity)
 
-    fun read() : T {
-        if (data.isEmpty()) throw EmptyBufferException()
-        return data.removeFirst()
-    }
+    fun read(): T = data.removeFirstOrNull() ?: throw EmptyBufferException()
 
     fun write(value: T) {
         if (data.size == capacity) throw BufferFullException()
