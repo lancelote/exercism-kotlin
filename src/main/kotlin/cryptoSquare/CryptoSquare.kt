@@ -27,8 +27,7 @@ object CryptoSquare {
     private fun String.dimensions(): Pair<Int, Int> {
         val root = sqrt(this.length.toDouble())
         val cols = ceil(root).toInt()
-        val emptyCells = (cols * cols - this.length)
-        val rows = cols - if (emptyCells >= cols) 1 else 0
+        val rows = if (cols == 0) 0 else ceil(this.length.toDouble() / cols).toInt()
         return Pair(cols, rows)
     }
 }
