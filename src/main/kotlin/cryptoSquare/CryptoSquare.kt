@@ -14,11 +14,11 @@ object CryptoSquare {
         val result: MutableList<String> = mutableListOf()
 
         for (c in 0 until cols) {
-            var line = ""
+            val line: MutableList<Char> = mutableListOf()
             for (r in 0 until rows) {
-                line += this.elementAtOrNull(c + (r * cols)) ?: " "
+                line.add(this.elementAtOrNull(c + (r * cols)) ?: ' ')
             }
-            result.add(line)
+            result.add(line.joinToString(""))
         }
 
         return result.joinToString(" ")
