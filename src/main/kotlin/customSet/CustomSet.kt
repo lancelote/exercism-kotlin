@@ -54,6 +54,7 @@ class CustomSet(vararg elements: Int) : Iterable<Int> {
     }
 
     override fun equals(other: Any?): Boolean {
+        if (this === other) return true
         if (other !is CustomSet) return false
         if (this.isEmpty() xor other.isEmpty()) return false
 

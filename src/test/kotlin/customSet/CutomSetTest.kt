@@ -157,6 +157,12 @@ class CustomSetTest {
     }
 
     @Test
+    fun `set is equal to itself`() {
+        val set = CustomSet(1, 2, 3)
+        assertEquals(set, set)
+    }
+
+    @Test
     fun `add to empty set`() {
         val sut = CustomSet()
         val expected = CustomSet(3)
