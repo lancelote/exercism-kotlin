@@ -58,7 +58,7 @@ class CustomSet(vararg elements: Int) : Iterable<Int> {
         if (other !is CustomSet) return false
         if (this.isEmpty() xor other.isEmpty()) return false
 
-        return this.all(other::contains) && other.all(this::contains)
+        return this.isSubset(other) && other.isSubset(this)
     }
 
     operator fun plus(other: CustomSet): CustomSet {
