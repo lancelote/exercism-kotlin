@@ -86,16 +86,18 @@ class CustomSet(vararg elements: Int) : Iterable<Int> {
     }
 
     override fun iterator() = object : Iterator<Int> {
-        var index = 0
-        var node = data[index]
+        var chainIndex = 0
+        var node = data[chainIndex]
 
         init {
             if (node == null) toNextNode()
         }
 
         private fun toNextNode() {
-            while (node == null && ++index < size) {
-                node = data[index]
+            if (node != null) node = node?.next
+
+            while (node == null && ++chainIndex < size) {
+                node = data[chainIndex]
             }
         }
 
@@ -103,8 +105,7 @@ class CustomSet(vararg elements: Int) : Iterable<Int> {
 
         override fun next(): Int {
             val value = node?.value ?: throw NoSuchElementException()
-            node = node?.next
-            if (node == null) toNextNode()
+            toNextNode()
             return value
         }
     }
