@@ -1,6 +1,5 @@
 package dndCharacter
 
-import kotlin.math.floor
 import kotlin.random.Random
 
 class DndCharacter {
@@ -18,6 +17,6 @@ class DndCharacter {
             return dices.sum() - dices.min()
         }
 
-        fun modifier(score: Int) = floor((score - 10) / 2.0).toInt()
+        fun modifier(score: Int) = (score - 10).floorDiv(2)
     }
 }
