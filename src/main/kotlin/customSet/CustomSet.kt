@@ -25,7 +25,7 @@ class CustomSet(vararg elements: Int) : Iterable<Int> {
     }
 
     fun contains(other: Int): Boolean {
-        val hash = other % size
+        val hash = other.mod(size)
         var node = data[hash]
 
         while (node != null) {
@@ -49,7 +49,7 @@ class CustomSet(vararg elements: Int) : Iterable<Int> {
     fun add(other: Int) {
         if (contains(other)) return
 
-        val hash = other % size
+        val hash = other.mod(size)
         data[hash] = Node(other, data[hash])
     }
 

@@ -295,4 +295,11 @@ class CustomSetTest {
         val set = CustomSet(1, 2, 3)
         assertEquals(listOf(1, 2, 3), set.toList().sorted())
     }
+
+    @Test
+    fun `negative numbers`() {
+        val set1 = CustomSet(-1, -2, -3)
+        val set2 = CustomSet(-3, -2, -1)
+        assertEquals(set1, set2)
+    }
 }
