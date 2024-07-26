@@ -4,8 +4,8 @@ import kotlin.math.sqrt
 
 object Darts {
     fun score(x: Number, y: Number): Int {
-        val floatX = x.toFloat()
-        val floatY = y.toFloat()
+        val floatX = x.toDouble()
+        val floatY = y.toDouble()
 
         val distance = sqrt(floatX * floatX + floatY * floatY)
 
