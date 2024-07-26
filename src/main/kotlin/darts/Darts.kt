@@ -1,18 +1,20 @@
 package darts
 
-import kotlin.math.sqrt
-
 object Darts {
     fun score(x: Number, y: Number): Int {
-        val floatX = x.toDouble()
-        val floatY = y.toDouble()
+        val doubleX = x.toDouble()
+        val doubleY = y.toDouble()
 
-        val distance = sqrt(floatX * floatX + floatY * floatY)
+        val outerRing = 100
+        val middleRing = 25
+        val innerRing = 1
+
+        val distanceSquared = doubleX * doubleX + doubleY * doubleY
 
         return when {
-            distance > 10 -> 0
-            distance > 5 -> 1
-            distance > 1 -> 5
+            distanceSquared > outerRing -> 0
+            distanceSquared > middleRing -> 1
+            distanceSquared > innerRing -> 5
             else -> 10
         }
     }
