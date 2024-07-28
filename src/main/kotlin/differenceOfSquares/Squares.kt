@@ -1,12 +1,9 @@
 package differenceOfSquares
 
 class Squares(private val n: Int) {
-    fun sumOfSquares() = (1..n).sumOf { it * it }
+    fun sumOfSquares() = n * (n + 1) * (2 * n + 1) / 6
 
-    fun squareOfSum(): Int {
-        val sum = (1..n).sum()
-        return sum * sum
-    }
+    fun squareOfSum() = n * n * (n + 1) * (n + 1) / 4
 
     fun difference() = squareOfSum() - sumOfSquares()
 }
