@@ -1,11 +1,9 @@
 package pangram
 
 object Pangram {
-    fun isPangram(input: String): Boolean {
-        return input
+    fun isPangram(input: String) = input
             .filter { it.isLetter() }
             .map { it.lowercaseChar() }
             .toSet()
             .size == 26
-    }
 }
