@@ -32,15 +32,17 @@ class HammingTest {
 
     @Test
     fun `disallow first strand longer`() {
-        assertFailsWith(IllegalArgumentException::class, "left and right strands must be of equal length") {
+        val exception = assertFailsWith<IllegalArgumentException> {
             Hamming.compute("AATG", "AAA")
         }
+        assertEquals("left and right strands must be of equal length", exception.message)
     }
 
     @Test
     fun `disallow second strand longer`() {
-        assertFailsWith(IllegalArgumentException::class, "left and right strands must be of equal length") {
+        val exception = assertFailsWith<IllegalArgumentException> {
             Hamming.compute("ATA", "AGTG")
         }
+        assertEquals("left and right strands must be of equal length", exception.message)
     }
 }
