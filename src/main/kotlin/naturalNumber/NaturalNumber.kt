@@ -1,13 +1,22 @@
 package naturalNumber
 
+import kotlin.math.sqrt
+
 enum class Classification {
     DEFICIENT, PERFECT, ABUNDANT
 }
 
 fun classify(naturalNumber: Int): Classification {
+    if (naturalNumber == 1) return Classification.DEFICIENT
     if (naturalNumber <= 0) throw RuntimeException("a positive number is expected")
 
-    val aliquotSum = (1 until naturalNumber).filter { naturalNumber % it == 0 }.sum()
+    val topSearchBound = sqrt(naturalNumber.toDouble()).toInt()
+    val aliquotSum = 1 + (2..topSearchBound)
+        .filter { naturalNumber % it == 0 }
+        .sumOf { d1 ->
+            val d2 = naturalNumber / d1
+            if (d1 == d2) d1 else (d1 + d2)
+        }
 
     return when {
         aliquotSum == naturalNumber -> Classification.PERFECT
